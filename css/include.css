@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Permanent+Marker&family=Poppins:wght@500;600;700&display=swap');
+
+/* ----- DADEX CONSUM CSS ------ */
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+body.dark{
+    /* === Colors === */
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #3A3B3C;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    background: #18191A;
+}
+
+:root {
+
+    /* === Colors === */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695cfe;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+
+
+
+
+}
+
+/* === Sidebar Css === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+    
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+/* ==== Resuable  CSS Css ==== */
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li {
+    position: relative;
+    height: 50px;
+    margin-top: 5px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    
+}
+
+.sidebar li .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    font-size: 20px;
+}
+
+.sidebar li .icons,
+.sidebar li .text {
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .image-text img {
+    width: 70px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name {
+    font-weight: 600;
+}
+
+.header-text .profession {
+    margin-top: -2px;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -28px;
+    padding: 10px;
+    transform: translateY(-50%) rotate(180deg);
+    width: 25px;
+    height: 25px;
+    /* background: var(--primary-color); */
+    background: #110f29;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 12px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle {
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle {
+    color: var(--text-color);
+}
+
+.sidebar .menu{
+    margin-top: 5px;
+}
+
+.sidebar .search-box {
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    background: var(--primary-color-light);
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: var(--tran-05);
+    color: var(--text-color);
+}
+
+.sidebar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+    
+}
+
+.sidebar li a:hover{
+    /* background: var(--primary-color); */
+    background: #110f29;
+}
+
+.sidebar li a:hover .icons,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icons,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100%- 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .menu-bar .menu-links{
+    margin-left: -30px;
+}
+
+/* .sidebar .bottom-content{
+    margin-top: -20px;
+
+} */
+
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+
+}
+.menu-bar .mode i{
+    position: absolute;
+    transition: var(--tran-03);
+}
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+}
+
+.menu-bar .bottom-content .nav-bottom a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+    
+}
+
+.sidebar .bottom-content .nav-bottom a:hover{
+    background: #d63031;
+    color: #c8d6e5;
+}
+
+.sidebar .bottom-content .nav-bottom a:hover .icons,
+.sidebar .bottom-content .nav-bottom a:hover .text{
+    color: var(--sidebar-color);
+}
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+    
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+
+/* Dadex TABLE CONPRONENT */
+
+.home{
+    position: absolute;
+    height: 100vh;
+    /* left: 250px; */
+    width: calc(200% - 220px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+/* MAIN CONTENT CSS*/
+
+.wrapper {
+    width: min (900px, 100% - 3rem);
+     margin-inline: auto;
+}
+
+.wrapper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+body.dark .wrapper h1{
+    color: #c8d6e5;
+}
+
+.wrapper .caption{
+    position: absolute;
+    top: -40%;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    /* background: #323232; */
+    background-color: rgba(255, 255, 255, 0.3);
+    
+
+}
+caption,
+th,td{
+    padding: 1rem;
+}
+
+caption,
+th{
+    text-align: left;
+}
+
+
+
+caption{
+    background: hsl(0, 0%, 0%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 17px;
+}
+
+body.dark caption{
+    color: #c8d6e5;
+}
+
+th {
+    /* background: hsl(0, 0%, 0%,  0.5); */
+    background: #2d3436;
+    color: #E4E9F7;
+    font-weight: 600;
+    font-family: 'Chakra Petch', sans-serif;
+
+}
+
+td{
+    /* color: #c8d6e5; */
+    color: #3A3B3C;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.dark td{
+    color: #242526;
+}
+
+tr:nth-child(2n){
+    /* background: hsl(0, 0%, 0%, 1); */
+    background: #fdcb6e;
+}
+
+
+@media (max-width: 650px) {
+
+    .home{
+        width:100% ;
+    }
+    
+    th{
+        display: none;
+    }
+
+    td{
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: 15ch auto;
+        padding: 0.7rem 1rem;
+    }
+
+    td:first-child{
+        padding-top: 2rem;
+    }
+
+    td:last-child{
+        padding-bottom: 2rem;
+    }
+
+    td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    .values{
+        width: 100%;
+        display: flex;
+       
+        
+    }
+
+    .btn {
+        margin: 0px 30px;
+    }
+
+    .sidebar header .toggle{
+        display: none;
+    }
+    
+}
